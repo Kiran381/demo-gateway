@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: demo-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: demo-app
+        uri: http://localhost:8045
+        predicates:
+        - Path=/app/**
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:9000/eureka

@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
       - id: demo-app
-        uri: http://localhost:8045
+        uri: lb://demo-app #http://localhost:8045
         predicates:
         - Path=/app/**
 
